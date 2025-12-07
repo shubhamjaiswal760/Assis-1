@@ -30,7 +30,7 @@ For development with auto-reload:
 npm run dev
 ```
 
-3. The server will run on `http://localhost:5000`
+3. The server will run on `https://assis-1.onrender.com`
 
 ## API Endpoints
 

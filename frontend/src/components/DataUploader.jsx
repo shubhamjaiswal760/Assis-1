@@ -61,7 +61,7 @@ const DataUploader = ({ onDataUploaded }) => {
       } else if (err.message) {
         errorMsg = err.message;
       } else if (err.code === 'ERR_NETWORK' || err.message === 'Network Error') {
-        errorMsg = 'Cannot connect to server. Please ensure the backend server is running on http://localhost:5000';
+        errorMsg = 'Cannot connect to server. Please ensure the backend server is running on https://assis-1.onrender.com';
       }
       
       setError('Error uploading file: ' + errorMsg);

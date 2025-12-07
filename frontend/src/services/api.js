@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Get backend URL from environment variable, with fallback to your Render backend
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://assis-1.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -56,7 +57,7 @@ export const testConnection = async () => {
     const response = await axios.get(`${API_BASE_URL.replace('/api', '')}/health`);
     return response.data;
   } catch (error) {
-    throw new Error('Cannot connect to server. Please ensure the backend is running on http://localhost:5000');
+    throw new Error('Cannot connect to server. Please ensure the backend is running on https://assis-1.onrender.com');
   }
 };
 
@@ -91,7 +92,7 @@ export const uploadCSVFile = async (file, onProgress) => {
     if (error.code === 'ECONNABORTED') {
       throw new Error('Upload timeout. The file is too large or the server is taking too long to respond.');
     } else if (error.code === 'ERR_NETWORK' || error.message === 'Network Error') {
-      throw new Error('Network error. Please check if the backend server is running on http://localhost:5000');
+      throw new Error('Network error. Please check if the backend server is running on https://assis-1.onrender.com');
     } else if (error.response) {
       // Server responded with error status
       throw new Error(error.response.data?.message || error.response.data?.error || `Server error: ${error.response.status}`);

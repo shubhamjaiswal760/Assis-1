@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 // Configure CORS to allow file uploads
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173'], // Vite default port is 5173, but we set 3000
+  origin: ['http://localhost:3000', 'http://localhost:5173', 'https://assis-1.netlify.app'], // Local dev + Netlify frontend
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
